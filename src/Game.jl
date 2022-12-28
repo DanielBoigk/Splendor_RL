@@ -2,7 +2,7 @@ using CSV
 using DataFrames
 include("read_cards.jl")
 Card_list = read_cards()
-
+# This file is supposed to generate valid games from which on can later produce valid states for Q-learning
 
 #=  green_cost::Int8
     red_cost::Int8

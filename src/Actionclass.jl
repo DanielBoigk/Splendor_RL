@@ -1,3 +1,4 @@
+# Supposed to list all possible actions given a game state
 # write function that returns all actions from given state as dictionary
 
 struct player_action

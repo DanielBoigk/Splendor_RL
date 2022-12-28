@@ -1,3 +1,5 @@
+# defines state class for RL has methods to produce state as float array
+
 mutable struct card
     card_quality::Int8
     card_points::Int8
