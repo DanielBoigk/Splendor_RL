@@ -18,5 +18,10 @@ function read_cards()
 
     df.Color = parse.(Int64, df.Color)
 
-    return Matrix{Union{Missing, Int8}}(df)
+    return Matrix{Int8}(df)
+end
+
+function read_nobles()
+    df2 = CSV.File("noblelist.csv") |> DataFrame
+    return Matrix{Int8}(df2)
 end
