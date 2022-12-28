@@ -2,7 +2,7 @@ using CSV
 using DataFrames
 
 function read_cards()
-    df = CSV.File("cardlist.csv") |> DataFrame
+    df = CSV.File("data/cardlist.csv") |> DataFrame
     
     replace!(df.green,missing => 0)
     replace!(df.red,missing => 0)
@@ -22,6 +22,6 @@ function read_cards()
 end
 
 function read_nobles()
-    df2 = CSV.File("noblelist.csv") |> DataFrame
+    df2 = CSV.File("data/noblelist.csv") |> DataFrame
     return Matrix{Int8}(df2)
 end
