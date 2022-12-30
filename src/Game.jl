@@ -29,7 +29,8 @@ mutable struct game
     
     noble_list::Array{Int8}
     
-    function game(player::Int64)
+
+#=    function game(player::Int64)
         turn = 0
         if player == 2
             game_coins = [4,4,4,4,4,5]
@@ -68,12 +69,52 @@ mutable struct game
         
         new(false, player, turn, game_coins,player_coins, player_points, player_PP, 
             cll, cml, chl, noble)
-    end      
+end     =# 
 end
+
+new_game(int::64)
+function game(player::Int64)
+            turn = 0
+            if player == 2
+                game_coins = [4,4,4,4,4,5]
+            elseif player == 3
+                game_coins = [5,5,5,5,5,5]
+            else     
+                player = 4
+                game_coins = [7,7,7,7,7,5]
+            end
+            player_coins = zeros(Int8, player, 6)
+            player_points = zeros(Int8,player)
+            player_PP = zeros(Int8,player,5)
+
+            cll = Card_list[1:40,:]
+            cml = Card_list[41:70,:]
+            chl = Card_list[71:90,:]
+
+            cll = cll[shuffle(1:end), :]
+            cml = cml[shuffle(1:end), :]
+            chl = chl[shuffle(1:end), :]
+
+            #Arrays that remember where cards are and whether theyre hidden:
+            cll = [cll zeros(Int8,40,1) -ones(Int8, 40,1)] 
+            cml = [cml zeros(Int8,30,1) -ones(Int8, 30,1)]
+            chl = [chl zeros(Int8,20,1) -ones(Int8, 20,1)]
+
+            cll[1:4,9] = [1,1,1,1]
+            cll[1:4,10] = [0,0,0,0]
+            cml[1:4,9] = [1,1,1,1]
+            cml[1:4,10] = [0,0,0,0]
+            chl[1:4,9] = [1,1,1,1]
+            chl[1:4,10] = [0,0,0,0]
+
+            noble = (Noble_list[shuffle(1:end), :])[1:player+1,:]
+            return game(false, player, turn, game_coins,player_coins, player_points,player_PP, 
+            cll, cml, chl, noble)
+end  
 
 
 function alt_game_action() # Changes game based on action
-    
+    println("not implemented")
     
 end
 
