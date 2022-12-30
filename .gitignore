@@ -56,5 +56,6 @@ docs/site/
 *.user
 *.orig
 *.ipynb
+*ipynb*
 
 # End of https://www.toptal.com/developers/gitignore/api/julia
